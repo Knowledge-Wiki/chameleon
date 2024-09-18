@@ -31,8 +31,12 @@ use FileFetcher\SimpleFileFetcher;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use QuickTemplate;
+// MW 1.42
+if ( class_exists('MediaWiki\ResourceLoader\ResourceLoader') ) {
+    class_alias( 'MediaWiki\ResourceLoader\ResourceLoader', 'ResourceLoader' );
+}
+use ResourceLoader;
 use Sanitizer;
-use MediaWiki\ResourceLoader\ResourceLoader;
 use Skins\Chameleon\Hooks\ResourceLoaderRegisterModules;
 use Skins\Chameleon\Hooks\SetupAfterCache;
 use SkinTemplate;
